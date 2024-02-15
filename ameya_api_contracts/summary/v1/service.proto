@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-package ameya.summary.v1;
+package ameya_api_contracts.summary.v1;
 
-import "ameya/types/v1/messages.proto";
-import "ameya/types/v1/enums.proto";
+import "ameya_api_contracts/types/v1/messages.proto";
+import "ameya_api_contracts/types/v1/enums.proto";
 
 service SummaryService {
     rpc StreamAudio(stream StreamAudioRequest) returns (StreamAudioResponse) {}
@@ -15,13 +15,13 @@ message StreamAudioRequest {
     // Metadata is sent at the start of the stream
     // Audio data is sent after the metadata
     oneof data {
-        ameya.types.v1.AudioMetaData metadata = 1; // Metadata sent at the start
-        ameya.types.v1.AudioChunk audio_data = 2; // Actual audio data
+        ameya_api_contracts.types.v1.AudioMetaData metadata = 1; // Metadata sent at the start
+        ameya_api_contracts.types.v1.AudioChunk audio_data = 2; // Actual audio data
     }
 }
 
 message StreamAudioResponse {
-  ameya.types.v1.ResponseStatus status = 1;
+  ameya_api_contracts.types.v1.ResponseStatus status = 1;
   string message = 2;
   string call_id = 3;
 }
@@ -31,7 +31,7 @@ message GetSummaryRequest {
 }
 
 message GetSummaryResponse {
-  ameya.types.v1.ResponseStatus status = 1;
+  ameya_api_contracts.types.v1.ResponseStatus status = 1;
   string message = 2;
   optional AggregatedResults results = 3;
 }

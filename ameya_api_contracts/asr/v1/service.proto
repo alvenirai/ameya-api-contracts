@@ -1,8 +1,8 @@
 syntax = "proto3";
-package ameya.asr.v1;
+package ameya_api_contracts.asr.v1;
 
-import "ameya/types/v1/messages.proto";
-import "ameya/types/v1/enums.proto";
+import "ameya_api_contracts/types/v1/messages.proto";
+import "ameya_api_contracts/types/v1/enums.proto";
 
 // This file contains preproduction API definitions for the ASR service.
 // These APIs are not yet stable and are subject to change.
@@ -25,8 +25,8 @@ message BidiStreamAudioRequest {
     // Metadata is sent at the start of the stream
     // Audio data is sent after the metadata
     oneof data {
-        ameya.types.v1.AudioMetaData metadata = 1; // Metadata sent at the start
-        ameya.types.v1.AudioChunk audio_data = 2; // Actual audio data
+        ameya_api_contracts.types.v1.AudioMetaData metadata = 1; // Metadata sent at the start
+        ameya_api_contracts.types.v1.AudioChunk audio_data = 2; // Actual audio data
     }
 }
 
@@ -35,15 +35,15 @@ message StreamAudioRequest {
     // Metadata is sent at the start of the stream
     // Audio data is sent after the metadata
     oneof data {
-        ameya.types.v1.AudioMetaData metadata = 1; // Metadata sent at the start
-        ameya.types.v1.AudioChunk audio_data = 2; // Actual audio data
+        ameya_api_contracts.types.v1.AudioMetaData metadata = 1; // Metadata sent at the start
+        ameya_api_contracts.types.v1.AudioChunk audio_data = 2; // Actual audio data
     }
 }
 
 message StreamAudioResponse {
     // The call ID of the audio data that was streamed to the server.
     string call_id = 1;
-    ameya.types.v1.ResponseStatus status = 2;
+    ameya_api_contracts.types.v1.ResponseStatus status = 2;
 }
 
 message GetTranscriptionRequest {

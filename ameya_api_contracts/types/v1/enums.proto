@@ -1,5 +1,5 @@
 syntax = "proto3";
-package ameya.types.v1;
+package ameya_api_contracts.types.v1;
 
 enum ResponseStatus {
     RESPONSE_STATUS_UNSPECIFIED = 0;
