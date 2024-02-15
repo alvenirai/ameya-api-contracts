@@ -1,0 +1,8 @@
+syntax = "proto3";
+package ameya.types.v1;
+
+enum ResponseStatus {
+    RESPONSE_STATUS_UNSPECIFIED = 0;
+    RESPONSE_STATUS_OK = 1;
+    RESPONSE_STATUS_ERROR = 2;
+}
