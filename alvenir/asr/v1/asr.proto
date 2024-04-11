@@ -19,18 +19,14 @@ service ASRService {
 
 // BidiStreamAudioRequest is the request message for BidiStreamAudio. It contains either audio metadata or audio data.
 message BidiStreamAudioRequest {
-    oneof data {
-        alvenir.types.v1.AudioMetaData metadata = 1;
-        alvenir.types.v1.AudioChunk audio_data = 2;
-    }
+    alvenir.types.v1.AudioMetaData metadata = 1;
+    alvenir.types.v1.AudioChunk audio_data = 2;
 }
 
 // StreamAudioRequest is the request message for StreamAudio. It contains either audio metadata or audio data.
 message StreamAudioRequest {
-    oneof data {
-        alvenir.types.v1.AudioMetaData metadata = 1;
-        alvenir.types.v1.AudioChunk audio_data = 2;
-    }
+    alvenir.types.v1.AudioMetaData metadata = 1;
+    alvenir.types.v1.AudioChunk audio_data = 2;
 }
 
 // StreamAudioResponse is the response message for StreamAudio.
