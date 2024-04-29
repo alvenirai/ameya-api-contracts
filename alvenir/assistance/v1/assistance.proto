@@ -1,0 +1,9 @@
+syntax = "proto3";
+package alvenir.assistance.v1;
+
+// AssistanceEvent is the content sent from the Live Assistance app
+message AssistanceEvent {
+  string title = 1;
+  string body = 2;
+  optional string url = 3;
+}
