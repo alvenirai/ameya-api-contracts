@@ -1,0 +1,67 @@
+syntax = "proto3";
+package alvenir.guidance.v1;
+
+
+message LlmPromptAnswer {
+  string prompt = 1;
+  string context = 2;
+  string answer = 3;
+}
+
+message LlmData {
+  LlmPromptAnswer introduction = 1;
+  LlmPromptAnswer client_understanding = 2;
+  LlmPromptAnswer follow_up_questions = 3;
+  LlmPromptAnswer answer_quality = 4;
+  LlmPromptAnswer language = 5;
+  LlmPromptAnswer conclusion = 6;
+  LlmPromptAnswer follow_up = 7;
+  LlmPromptAnswer general_feedback = 8;
+}
+
+message CallMeta {
+  string time_of_call = 1;
+  string length = 2;
+  float answer_time = 3;
+}
+
+message TranscriptionMeta {
+  string n_words = 1;
+  string n_fill_words = 2;
+}
+
+// for timeline chart
+message StringData {
+  repeated string x = 1;
+  repeated string y = 2;
+  string speaker = 3;
+}
+
+// for any chart with numeric values
+message FloatData {
+  repeated float x = 1;
+  repeated float y = 2;
+  string speaker = 3;
+}
+
+
+message StringDataConcat {
+  string title = 1;
+  StringData caller_data = 2;
+  StringData advisor_data = 3;
+}
+
+message FloatDataConcat {
+  string title = 1;
+  FloatData caller_data = 2;
+  FloatData advisor_data = 3;
+}
+
+message GuidanceEvent {
+  LlmData llm_data = 1;
+  StringDataConcat audio_segments = 2;
+  FloatDataConcat sentiment_data = 3;
+  CallMeta audio_meta = 4;
+  TranscriptionMeta transcription_meta = 5;
+  string processing_id = 6;
+}
