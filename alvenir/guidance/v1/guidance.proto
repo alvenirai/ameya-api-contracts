@@ -11,12 +11,12 @@ message LlmPromptAnswer {
 
 message LlmData {
   LlmPromptAnswer introduction = 1;
-  LlmPromptAnswer client_understanding = 2;
-  LlmPromptAnswer follow_up_questions = 3;
-  LlmPromptAnswer answer_quality = 4;
+  LlmPromptAnswer client_satisfaction = 2;
+  LlmPromptAnswer answer_quality = 3;
+  LlmPromptAnswer empathy = 4;
   LlmPromptAnswer language = 5;
-  LlmPromptAnswer conclusion = 6;
-  LlmPromptAnswer follow_up = 7;
+  LlmPromptAnswer voice = 6;
+  LlmPromptAnswer upselling = 7;
   LlmPromptAnswer general_feedback = 8;
 }
 
