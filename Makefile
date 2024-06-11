@@ -4,7 +4,7 @@ lint:
 	@buf lint
 
 push:
-	@buf push --tag "$(git rev-parse HEAD)"
+	@buf push --label "$(git rev-parse HEAD)"
 
 curl_summary:
 	buf curl \
