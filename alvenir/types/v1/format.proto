@@ -30,6 +30,7 @@ message AudioMetaData {
   string caller_id = 2;
   int32 chunk_size = 3;
   PCM pcm_format = 4;
+  string processing_id = 5;
 }
 
 // Audio chunk
