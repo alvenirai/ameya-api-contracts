@@ -16,8 +16,10 @@ message LlmData {
   LlmPromptAnswer empathy = 4;
   LlmPromptAnswer language = 5;
   LlmPromptAnswer voice = 6;
-  LlmPromptAnswer upselling = 7;
-  LlmPromptAnswer general_feedback = 8;
+  LlmPromptAnswer speaker_efficiency = 7;
+  LlmPromptAnswer upselling = 8;
+  LlmPromptAnswer general_feedback = 9;
+  LlmPromptAnswer subjects = 10;
 }
 
 message CallMeta {
@@ -32,6 +34,7 @@ message TranscriptionMeta {
 }
 
 // for timeline chart
+// Formats of start and end are h:mm:ss:ms aka "0:04:483"
 message TimeInterval {
   string start = 1;
   string end = 2;
