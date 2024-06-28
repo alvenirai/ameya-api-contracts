@@ -5,7 +5,7 @@ package alvenir.guidance.v1;
 
 message LlmPromptAnswer {
   string prompt = 1;
-  string context = 2;
+  string meta = 2;
   string answer = 3;
   float score = 4;
 }
@@ -25,7 +25,7 @@ message LlmData {
 
 message CallMeta {
   string time_of_call = 1;
-  string length = 2;
+  float length = 2;
   float answer_time = 3;
 }
 
