@@ -12,7 +12,10 @@ service SummaryService {
     rpc StreamAudio(stream StreamAudioRequest) returns (StreamAudioResponse) {}
     // GetSummary gets the summary of the audio data that was streamed to the server. The call_id is used to identify the audio data.
     rpc GetSummary(GetSummaryRequest) returns (GetSummaryResponse) {}
+    // Stream audio and get summary directly back
+    rpc StreamAndGetSummary(stream StreamAndGetSummaryRequest) returns (StreamAndGetSummaryResponse) {}
 }
+
 
 // StreamAudioRequest is the request message for the StreamAudio method.
 message StreamAudioRequest {
@@ -20,11 +23,25 @@ message StreamAudioRequest {
     alvenir.types.v1.AudioChunk audio_data = 2;
 }
 
+
 // StreamAudioResponse is the response message for the StreamAudio method.
 message StreamAudioResponse {
   alvenir.types.v1.ResponseStatus status = 1;
   string message = 2;
   string call_id = 3;
+}
+
+// StreamAndGetSummaryRequest is the request message for the StreamAndGetSummary method.
+message StreamAndGetSummaryRequest {
+    alvenir.types.v1.AudioMetaData metadata = 1;
+    alvenir.types.v1.AudioChunk audio_data = 2;
+}
+
+// StreamAndGetSummaryResponse is the response message for the StreamAndGetSummary method.
+message StreamAndGetSummaryResponse {
+  alvenir.types.v1.ResponseStatus status = 1;
+  string message = 2;
+  optional AggregatedResults results = 3;
 }
 
 // GetSummaryRequest is the request message for the GetSummary method.
