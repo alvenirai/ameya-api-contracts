@@ -44,6 +44,7 @@ message StreamAndGetSummaryResponse {
   alvenir.types.v1.ResponseStatus status = 1;
   string message = 2;
   optional AggregatedResults results = 3;
+  string call_id = 4;
 }
 
 // GetSummaryRequest is the request message for the GetSummary method.

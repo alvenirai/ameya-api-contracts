@@ -1,0 +1,19 @@
+syntax = "proto3";
+package alvenir.summary.v1;
+
+import "alvenir/types/v1/status.proto";
+
+service AnalyticsService {
+  rpc PostSummaryAnalytics(PostSummaryAnalyticsRequest) returns (PostSummaryAnalyticsResponse) {}
+}
+
+message PostSummaryAnalyticsRequest {
+  string processing_id = 1;
+  string edited_summary = 2;
+  float wrap_up_time_seconds = 3;
+}
+
+message PostSummaryAnalyticsResponse {
+  alvenir.types.v1.ResponseStatus status = 2;
+  string message = 1;
+}
