@@ -1,0 +1,13 @@
+syntax = "proto3";
+package alvenir.types.v1;
+
+import "google/protobuf/timestamp.proto";
+
+message PingRequest {
+    int32 wait_time = 1;
+}
+
+message PingResponse {
+    google.protobuf.Timestamp request_received = 1;
+    google.protobuf.Timestamp response_sent = 2;
+}

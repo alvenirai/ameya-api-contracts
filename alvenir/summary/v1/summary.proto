@@ -3,6 +3,7 @@ package alvenir.summary.v1;
 
 import "alvenir/types/v1/format.proto";
 import "alvenir/types/v1/status.proto";
+import "alvenir/types/v1/ping.proto";
 
 // The summary service provides a way to turn streamed audio into a transcription, and then summarize the transcription.
 // The service is designed to stream in real time, and afterwards ask for a response.
@@ -14,8 +15,9 @@ service SummaryService {
     rpc GetSummary(GetSummaryRequest) returns (GetSummaryResponse) {}
     // Stream audio and get summary directly back
     rpc StreamAndGetSummary(stream StreamAndGetSummaryRequest) returns (StreamAndGetSummaryResponse) {}
+    // Send a ping request with a wait time defined. Server should respons after waiting the defined time.
+    rpc Ping(alvenir.types.v1.PingRequest) returns (alvenir.types.v1.PingResponse) {}
 }
-
 
 // StreamAudioRequest is the request message for the StreamAudio method.
 message StreamAudioRequest {
