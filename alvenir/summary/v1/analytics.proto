@@ -8,7 +8,7 @@ service AnalyticsService {
 }
 
 message PostSummaryAnalyticsRequest {
-  string processing_id = 1;
+  string call_id = 1;
   string edited_summary = 2;
   float wrap_up_time_seconds = 3;
 }
